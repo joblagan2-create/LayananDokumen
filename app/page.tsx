@@ -9,9 +9,8 @@ import {
 import Link from 'next/link';
 import { useState, useMemo, Fragment } from 'react';
 
-// --- KOMPONEN PENJARA IKLAN (FIXED URL SYNTAX) ---
+// --- KOMPONEN PENJARA IKLAN (FIXED: Tanda Kutip Satu) ---
 const AdCage = ({ adKey, w, h }: { adKey: string, w: number, h: number }) => {
-  // MENGGUNAKAN KUTIP SATU (') DI DALAM HTML AGAR URL TIDAK RUSAK
   const content = `<html><body style='margin:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;'><script type='text/javascript'>atOptions={'key':'${adKey}','format':'iframe','height':${h},'width':${w},'params':{}};</script><script type='text/javascript' src='https://www.highperformanceformat.com/${adKey}/invoke.js'></script></body></html>`;
   
   return (
@@ -31,7 +30,6 @@ const AdCage = ({ adKey, w, h }: { adKey: string, w: number, h: number }) => {
 export default function HomePage() {
   const [search, setSearch] = useState('');
   
-  // DATABASE DOKUMEN LENGKAP
   const DIRECTORY = [
     {
       group: "Bisnis & UMKM",
@@ -373,7 +371,7 @@ export default function HomePage() {
         </a>
       </div>
 
-      {/* ADSTERRA 728x90: PENJARA IFRAME AGAR PASTI DI TENGAH - FIXED URL SYNTAX */}
+      {/* ADSTERRA 728x90: PENJARA IFRAME AGAR PASTI DI TENGAH - FIXED SYNTAX */}
       <div className="max-w-5xl mx-auto px-6 mt-4 mb-4">
          <div className="w-full min-h-[100px] bg-white/50 border border-slate-200 border-dashed rounded-xl flex items-center justify-center overflow-hidden py-4">
             {/* FIXED AD SYNTAX */}
