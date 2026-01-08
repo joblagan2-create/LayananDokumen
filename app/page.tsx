@@ -9,27 +9,10 @@ import {
 import Link from 'next/link';
 import { useState, useMemo, Fragment } from 'react';
 
-// --- KOMPONEN PENJARA IKLAN (FIXED: Tanda Kutip Satu) ---
-const AdCage = ({ adKey, w, h }: { adKey: string, w: number, h: number }) => {
-  const content = `<html><body style='margin:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;'><script type='text/javascript'>atOptions={'key':'${adKey}','format':'iframe','height':${h},'width':${w},'params':{}};</script><script type='text/javascript' src='https://www.highperformanceformat.com/${adKey}/invoke.js'></script></body></html>`;
-  
-  return (
-    <div className="flex justify-center w-full overflow-hidden">
-      <iframe
-        srcDoc={content}
-        width={w}
-        height={h}
-        frameBorder="0"
-        scrolling="no"
-        className="mx-auto"
-      />
-    </div>
-  );
-};
-
 export default function HomePage() {
   const [search, setSearch] = useState('');
   
+  // DATABASE DOKUMEN LENGKAP
   const DIRECTORY = [
     {
       group: "Bisnis & UMKM",
@@ -371,26 +354,12 @@ export default function HomePage() {
         </a>
       </div>
 
-      {/* ADSTERRA 728x90: PENJARA IFRAME AGAR PASTI DI TENGAH - FIXED SYNTAX */}
-      <div className="max-w-5xl mx-auto px-6 mt-4 mb-4">
-         <div className="w-full min-h-[100px] bg-white/50 border border-slate-200 border-dashed rounded-xl flex items-center justify-center overflow-hidden py-4">
-            {/* FIXED AD SYNTAX */}
-            <AdCage adKey="8fd377728513d5d23b9caf7a2bba1a73" w={728} h={90} />
-         </div>
-      </div>
-
       <section id="directory" className="px-6 max-w-5xl mx-auto py-12 relative z-10 scroll-mt-20">
         {filteredDirectory.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredDirectory.map((cat, idx) => (
               <Fragment key={idx}>
-                {idx > 0 && idx % 3 === 0 && (
-                   <div className="flex flex-col bg-white/50 border border-slate-200 border-dashed rounded-xl overflow-hidden h-full items-center justify-center p-4 min-h-[280px]">
-                      <span className="text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em] mb-4">Sponsored Advertisement</span>
-                      {/* ADSTERRA 300x250: FIXED AD SYNTAX */}
-                      <AdCage adKey="9873c2eb956caac3e296de9c4fea56fc" w={300} h={250} />
-                   </div>
-                )}
+                {/* IKLAN SUDAH DIHAPUS TOTAL DI SINI */}
                 <div className={`flex flex-col bg-white border ${cat.border} rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group h-full`}>
                   <div className={`px-4 py-3 border-b ${cat.border} ${cat.bgHeader} flex items-center gap-3`}>
                     <div className={`p-1.5 rounded-lg bg-white/60 shadow-sm ${cat.color}`}><cat.icon size={18} strokeWidth={2.5} /></div>
