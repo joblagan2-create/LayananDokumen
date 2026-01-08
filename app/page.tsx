@@ -354,12 +354,14 @@ export default function HomePage() {
         </a>
       </div>
 
+      {/* IKLAN SUDAH DIHAPUS TOTAL DI SINI */}
+
       <section id="directory" className="px-6 max-w-5xl mx-auto py-12 relative z-10 scroll-mt-20">
         {filteredDirectory.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredDirectory.map((cat, idx) => (
               <Fragment key={idx}>
-                {/* IKLAN SUDAH DIHAPUS TOTAL DI SINI */}
+                {/* IKLAN SUDAH DIHAPUS TOTAL DI SINI JUGA */}
                 <div className={`flex flex-col bg-white border ${cat.border} rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group h-full`}>
                   <div className={`px-4 py-3 border-b ${cat.border} ${cat.bgHeader} flex items-center gap-3`}>
                     <div className={`p-1.5 rounded-lg bg-white/60 shadow-sm ${cat.color}`}><cat.icon size={18} strokeWidth={2.5} /></div>
