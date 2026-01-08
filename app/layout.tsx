@@ -12,16 +12,19 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  // VERIFIKASI GOOGLE SEARCH CONSOLE
+  verification: {
+    google: "tayBKyloVxPMxQEdM-zAI_pIqd90go0uw3KIovuWSyM",
+  },
+  // Tambahan metadataBase untuk handle URL absolut otomatis
+  metadataBase: new URL('https://layanandokumen.com'), 
 };
 
-// --- BAGIAN PENTING YANG KURANG TADI ---
-// Ini yang bikin HP ngerti kalau website ini responsif
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  // themeColor: "#0f172a", // Opsional: Biar status bar HP jadi gelap senada header
 };
 
 export default function RootLayout({
@@ -30,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
+    <html lang="id" className="scroll-smooth">
       <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
         {children}
       </body>
