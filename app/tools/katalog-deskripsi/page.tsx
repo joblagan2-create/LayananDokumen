@@ -8,6 +8,33 @@ import {
 import Link from 'next/link';
 import { useState } from 'react';
 
+// KOMPONEN PENJARA IKLAN UNTUK MENJAGA POSISI DI TENGAH
+const AdCage = ({ adKey, w, h, id }: { adKey: string, w: number, h: number, id: string }) => {
+  const content = `
+    <html>
+      <body style="margin:0; padding:0; display:flex; justify-content:center; align-items:center; background:transparent; overflow:hidden;">
+        <script type="text/javascript">
+          atOptions = { 'key' : '${adKey}', 'format' : 'iframe', 'height' : ${h}, 'width' : ${w}, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/${adKey}/invoke.js"></script>
+      </body>
+    </html>
+  `;
+  return (
+    <div className="flex justify-center w-full my-6 overflow-hidden bg-white/30 border border-dashed border-slate-200 rounded-xl py-4">
+      <iframe
+        id={id}
+        srcDoc={content}
+        width={w}
+        height={h}
+        frameBorder="0"
+        scrolling="no"
+        style={{ border: 'none', overflow: 'hidden' }}
+      />
+    </div>
+  );
+};
+
 export default function KatalogLengkapCompact() {
   const [search, setSearch] = useState('');
 
@@ -172,7 +199,6 @@ export default function KatalogLengkapCompact() {
 
   return (
     <div className="min-h-screen font-sans text-slate-900 bg-[#f8fafc] relative">
-      {/* BACKGROUND DECORATION */}
       <div className="fixed inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-emerald-400 opacity-20 blur-[100px]"></div>
@@ -254,6 +280,16 @@ export default function KatalogLengkapCompact() {
                     </div>
                   </Link>
                 ))}
+              </div>
+
+              {/* SISIPAN IKLAN ADSTERRA DI AKHIR SETIAP LIST KATEGORI */}
+              <div className="mt-8">
+                 <AdCage 
+                    adKey="8fd377728513d5d23b9caf7a2bba1a73" 
+                    w={728} 
+                    h={90} 
+                    id={`ad-katalog-${idx}`} 
+                 />
               </div>
             </section>
           ))}
