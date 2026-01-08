@@ -11,12 +11,11 @@ import { useState, useMemo, Fragment } from 'react';
 
 // --- KOMPONEN PENJARA IKLAN (VERSI AMAN - SYNTAX FIXED) ---
 const AdCage = ({ adKey, w, h }: { adKey: string, w: number, h: number }) => {
-  // PENTING: String HTML di bawah ini menggunakan kutip satu (') untuk atributnya
-  // agar browser tidak bingung dan tidak menganggapnya broken link.
+  // PENTING: String HTML menggunakan kutip satu (') untuk atributnya
   const content = `<html><body style='margin:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;'><script type='text/javascript'>atOptions={'key':'${adKey}','format':'iframe','height':${h},'width':${w},'params':{}};</script><script type='text/javascript' src='https://www.highperformanceformat.com/${adKey}/invoke.js'></script></body></html>`;
   
   return (
-    <div className="flex justify-center w-full overflow-hidden my-4">
+    <div className="flex justify-center w-full overflow-hidden my-4 no-print">
       <iframe
         srcDoc={content}
         width={w}
@@ -351,7 +350,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ADSTERRA 728x90: PENJARA IFRAME AGAR PASTI DI TENGAH - FIXED SYNTAX */}
+      {/* TOMBOL YANG TADI HILANG: EKSPLORASI KATALOG */}
+      <div className="relative z-20 max-w-5xl mx-auto px-6 mb-4">
+        <a 
+          href="#directory" 
+          className="group flex items-center justify-between w-full bg-white border border-slate-200 hover:border-emerald-500 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden relative cursor-pointer"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-50/0 via-emerald-50/50 to-emerald-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="relative flex items-center gap-4">
+            <div className="bg-emerald-100 text-emerald-600 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
+              <LayoutGrid size={20} />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-slate-800">Eksplorasi Katalog Lengkap Surat</h3>
+              <p className="text-[10px] text-slate-500 font-medium">Lihat rincian fungsi dan kegunaan 100+ template di bawah ini</p>
+            </div>
+          </div>
+          <div className="relative flex items-center gap-2 text-emerald-600">
+            <span className="text-[10px] font-black uppercase tracking-widest hidden sm:block">Scroll Kebawah</span>
+            <div className="animate-bounce bg-emerald-600 text-white p-1.5 rounded-full shadow-lg">
+              <ChevronDown size={16} strokeWidth={3} />
+            </div>
+          </div>
+        </a>
+      </div>
+
+      {/* IKLAN TENGAH (SAFE MODE) */}
       <div className="max-w-5xl mx-auto px-6 mt-4 mb-4">
          <div className="w-full min-h-[100px] bg-white/50 border border-slate-200 border-dashed rounded-xl flex items-center justify-center overflow-hidden py-4">
             {/* FIXED AD SYNTAX */}
@@ -367,7 +391,7 @@ export default function HomePage() {
                 {idx > 0 && idx % 3 === 0 && (
                    <div className="flex flex-col bg-white/50 border border-slate-200 border-dashed rounded-xl overflow-hidden h-full items-center justify-center p-4 min-h-[280px]">
                       <span className="text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em] mb-4">Sponsored Advertisement</span>
-                      {/* ADSTERRA 300x250: FIXED AD SYNTAX */}
+                      {/* IKLAN KOTAK (SAFE MODE) */}
                       <AdCage adKey="9873c2eb956caac3e296de9c4fea56fc" w={300} h={250} />
                    </div>
                 )}
