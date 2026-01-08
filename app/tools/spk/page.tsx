@@ -133,7 +133,7 @@ function SPKBuilder() {
              <div className="space-y-1"><label className="text-[10px] font-bold text-slate-400 uppercase">Lingkup Kerja</label><textarea className="w-full p-2 border border-slate-200 rounded text-xs h-24" value={data.scope} onChange={e => setData({...data, scope: e.target.value})} /></div>
           </div>
           
-          {/* IKLAN SUDAH DIHAPUS DARI SINI */}
+          {/* SCRIPT IKLAN SUDAH DIHAPUS 100% */}
 
         </div>
 
